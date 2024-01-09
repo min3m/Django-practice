@@ -7,8 +7,18 @@ def index(request):
 
     return render(
         request,
-        'blog/index.html',
+        'blog/post_list.html',
         {
-			'abc': posts,
+			'posts': posts,
 		}
         )
+def single_post_page(request, pk):
+    post = Post.objects.get(pk = pk) # 매개변수로 받은 pk값과 같은 pk를 가져오라는 뜻!
+
+    return render(
+        request,
+        'blog/post_detail.html',
+        {
+            'post': post,
+        }
+    )

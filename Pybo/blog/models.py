@@ -26,4 +26,7 @@ class Post(models.Model):
     # auto_now_add=True는 최초로 등록되었을 시에만 현재날짜를 적용
     # auto_add=True model이 save 될때마다 현재날짜로 갱신.
 
+    def get_absolute_url(self):
+        return f'/blog/{self.pk}/'
+
     # author = 추후 작성될 모델, 외래키 구현시 다룸.
