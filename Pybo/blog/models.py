@@ -20,6 +20,10 @@ class Post(models.Model):
     # blank=True -> 해당필드는 필수가 아니다!
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
+    # upload_to에 이미지를 저장할 폴더의 경로 규칙을 지정, blog/images/연도/월/일/ 저장
+    # blank=True -> 해당 필드는 필수 항목은 아니라는 뜻!!!
+    # 즉, Post모델의 경우 관리자 페이지에서 title이나 content 필드를 비워 두고 save 버튼을 클릭하면 경고 메시지가 나오지만,
+    # blank=True를 설정하면 그 필드를 채우지 않더라고 경고 메시지 없이 저장됨.
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

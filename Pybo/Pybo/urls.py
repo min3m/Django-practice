@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings  # 추가
+from django.conf.urls.static import static  # 추가
+
 urlpatterns = [
     path('', include('single_pages.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # 추가

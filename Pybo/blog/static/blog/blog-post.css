@@ -1,0 +1,4 @@
+/* 56픽셀 만큼 nav bar를 패딩해주는 css */
+body {
+	padding-top: 56px;
+}
